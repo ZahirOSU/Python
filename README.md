@@ -1,3 +1,3 @@
 # Python
 
-Has some proplem for interview
+ Common Problem Solving Interview Questions and Answers
