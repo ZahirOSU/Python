@@ -28,7 +28,9 @@ class Solution:
         source_num_occ_dict = {}
         
         for num in target:
-            target_num_occ_dict[num] = target_num_occ_dict.get( num, 0 ) + 1
+            #Dict.get(key, default=None Value to be returned if the key is not found)
+            # # Adding elements one at a time Dict[0] = 'Geeks'
+            target_num_occ_dict[num] = target_num_occ_dict.get( num, 0 ) + 1   
             
         for num in arr:
             source_num_occ_dict[num] = source_num_occ_dict.get( num, 0 ) + 1
