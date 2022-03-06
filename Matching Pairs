@@ -8,7 +8,7 @@ def matching_pairs(s, t):
       map[s[i]] = t[i]
   
   if len(map) == 0:
-    return count  
+    return count -2
   
   for i in map:
       if i == map[map[i]]:
