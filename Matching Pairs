@@ -1,0 +1,23 @@
+def matching_pairs(s, t):
+  map = {}
+  count = 0
+  for i in range(len(s)):
+    if s[i] == t[i]:
+      count += 1
+    else:
+      map[s[i]] = t[i]
+  
+  if len(map) == 0:
+    return count  
+  
+  for i in map:
+      if i == map[map[i]]:
+        return count + 2
+  
+  return count + 1
+
+s = "abcd"
+t = "adcb"
+ 
+
+print(matching_pairs(s, t))
