@@ -1,0 +1,13 @@
+def count_subarrays(arr):
+    output = [1] * len(arr)
+    for i in range(len(arr)):
+        k = i
+        while k - 1 >= 0 and arr[k - 1] < arr[i]:
+            output[i] += 1
+            k -= 1
+        
+        k = i
+        while k + 1 < len(arr) and arr[k + 1] < arr[i]:
+            output[i] += 1
+            k += 1
+    return output
