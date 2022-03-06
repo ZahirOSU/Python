@@ -16,3 +16,21 @@ class Solution:
         target.sort()
         
         return arr == target 
+        
+        
+Implementation by occurrence comparison with dictionary:
+
+class Solution:
+    def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
+
+        
+        target_num_occ_dict = {}
+        source_num_occ_dict = {}
+        
+        for num in target:
+            target_num_occ_dict[num] = target_num_occ_dict.get( num, 0 ) + 1
+            
+        for num in arr:
+            source_num_occ_dict[num] = source_num_occ_dict.get( num, 0 ) + 1
+            
+        return target_num_occ_dict == source_num_occ_dict
