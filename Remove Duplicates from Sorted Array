@@ -1,0 +1,11 @@
+# Python3 code to iterate over a list
+list = [1, 1, 5, 7, 7]
+# list is declared
+a = []         
+    
+# Using for loop
+for i in range(len(list)-1):
+    if list[i] != list[i+1]:
+        a.append(list[i])
+a.append(list[-1])
+print(a)
