@@ -1,0 +1,19 @@
+Given an m x n integer matrix matrix, if an element is 0, set its entire row and column to 0's. You must do it in place.
+def setzero(an_array):
+    rows = len(an_array)
+    columns = len(an_array[0])
+    rows = set()
+    columns = set()
+
+     for j in range(len(matrix)):
+        for i in range(len(matrix[0])):
+            if matrix[j][i] == 0:
+                rows.add(j)
+                columns.add(i)
+    for c in columns:
+        for i in range(len(matrix)):
+            matrix[i][c] = 0
+
+   for r in rows:
+       matrix[r] = [0] * len(matrix[0])
+
