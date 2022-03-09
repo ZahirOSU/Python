@@ -1,0 +1,23 @@
+For example, there are n = 7 socks with colors ar = [1, 2, 1, 2, 1, 3, 2,] . There is one pair of color  and one of color . 
+There are three odd socks left, one of each color. The number of pairs is .
+9
+10 20 20 10 10 30 50 10 20
+op 3
+
+n = 7
+ar = [0,1,1,2,2,2,2]
+# Complete the sockMerchant function below.
+def sockMerchant(n, ar):
+    pears = 0
+    color = set()
+    for i in range(len(ar)):
+        if ar[i] not in color:
+            color.add(ar[i])
+        else:
+            pears += 1 
+            color.remove(ar[i])
+    return pears
+
+print(sockMerchant(n, ar))
+
+output 3
