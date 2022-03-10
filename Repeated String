@@ -1,0 +1,12 @@
+
+
+s= "abc"
+n=10
+c=0
+for i in range(n-len(s)):
+    s = s+ s[i%(len(s))]
+for i in range(len(s)):
+    if s[i]=="a":
+        c=c+1
+print(c)
+print(s)
