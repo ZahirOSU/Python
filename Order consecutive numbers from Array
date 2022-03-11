@@ -1,0 +1,18 @@
+arr = [5,0,2,3,1,4]
+Min = min(arr)
+temp = []
+temp.append(Min)
+for j in range(len(arr)):
+    for i in range(len(arr)):
+        if Min - arr[i] == 0:
+            continue
+        if arr[i]-Min == 1:
+            temp.append(arr[i])
+            Min = arr[i]
+        else:
+            continue
+        
+print(temp)
+
+   
+[0, 1, 2, 3, 4, 5]    
