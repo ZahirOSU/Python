@@ -1,0 +1,22 @@
+Given an array of integers, determine the minimum number of elements to delete to leave only elements of equal value.
+ 
+
+def equalizeArray(arr):
+    dict={}
+    c = 0
+    maxloc=0
+    for num in arr:
+        #dict.get(key, default=None Value to be returned if the key is not found)
+        dict[num] = dict.get( num, 0 ) + 1   
+    all_values = dict.values()
+    max_value = max(all_values)
+    #print(max)
+    for num in dict:
+        if dict[num] < max_value:
+            c=c+dict[num] 
+
+    return c
+
+arr = [1, 1, 3, 1, 2, 3, 3, 3]
+
+3
