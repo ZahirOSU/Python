@@ -1,0 +1,27 @@
+
+
+from math import sqrt
+def isPrime(n):
+ 
+    # Corner case
+    if (n <= 1):
+        return False
+ 
+     # If num is divisible by any number between
+        # 2 and sqrt(n), it is not prime
+    for i in range(2, int(sqrt(n))+1):
+        if (n % i == 0):
+            print(i)
+            return False
+ 
+    return True
+
+print(isPrime(11))
+
+True
+
+///////////// the same but in short way
+#The all() function returns True if all elements in the given iterable are true. If not, it returns False.
+for nums in range(100,200):
+    if all(nums%i !=0 for i in range(2,nums)):
+        print(nums)
