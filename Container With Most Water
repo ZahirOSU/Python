@@ -1,0 +1,30 @@
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        l = 0
+        r = len(height)-1
+        res = 0
+        while l < r:
+            area = (r - l) * min(height[l], height[r])
+            res = max(area,res)
+            if height[l]<height[r]:
+                l = l+1
+            else:
+                r = r-1
+        return res
+
+Input: height = [1,8,6,2,5,4,8,3,7]
+In this question, we have to find the Area between two points: Length x breadth
+Length will be the minimum element between the two pointers, and breadth will be the distance between the two pointers.
+
+So, let us approach the question now.
+As left pointer is at Element 1, and its index is 0, Right Pointer is at element 7, and its index is the total length of the Array; we calculate the
+Area = (Right - Left) x min(height[left],height[right]
+
+Why We take the Minimum? Because if we dont, then water will fall from the container.
+And then, we update the result with the Area calculated, while moving forward our left pointer; if the element on the left is less than element on the right; else moving the right pointer backwards if the element on the right is less than element on the left.
+
+We do this till left is less than right.
+
+Input: height = [1,8,6,2,5,4,8,3,7]
+Output: 49
+Explanation: The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of water (blue section) the container can contain is 49.
