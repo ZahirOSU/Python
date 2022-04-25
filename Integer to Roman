@@ -1,0 +1,46 @@
+class Solution(object):
+    def intToRoman(self, num):
+        """
+        :type num: int
+        :rtype: str
+        """
+        val = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4]
+        sym = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV"]
+        res = ""
+        for i in range(len(val)):
+            q,  r = divmod(num, val[i])
+            if q > 0:
+                res += q*sym[i]
+                num = r
+            if num == 0:
+                return res
+        if num > 0:
+            res += num*"I"
+        return res
+\\\\\\\\\\\\\\\\\\\
+
+def intToRoman1(self, num):
+    values = [ 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 ]
+    numerals = [ "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" ]
+    res, i = "", 0
+    while num:
+        res += (num//values[i]) * numerals[i]
+        num %= values[i]
+        i += 1
+    return res
+///////////////////////////////    
+def intToRoman(self, num):
+    values = [ 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 ]
+    numerals = [ "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" ]
+    res = ""
+    for i, v in enumerate(values):
+        res += (num//v) * numerals[i]
+        num %= v
+    return res
+
+Input: num = 3
+Output: "III"
+Explanation: 3 is represented as 3 ones.
+Input: num = 58
+Output: "LVIII"
+Explanation: L = 50, V = 5, III = 3.
