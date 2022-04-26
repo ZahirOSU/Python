@@ -1,0 +1,15 @@
+def mindistance(string1, string2):
+    list1 = list(string1.split(" "))
+    print(list1)
+    list2 = list(string2.split(" "))
+    first_set = set(list1)
+    sec_set = set(list2)
+    # Get the differences between two sets
+    differences = (first_set - sec_set).union(sec_set - first_set)
+    return (len(differences))
+
+string1 = "Zahir Ahmed"
+string2 = "Zahir"
+
+print(mindistance(string1, string2))
+output: 1
