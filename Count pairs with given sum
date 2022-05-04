@@ -1,0 +1,37 @@
+def getPairsCount(arr, n, sum):
+ 
+    count = 0  # Initialize result
+ 
+    # Consider all possible pairs
+    # and check their sums
+    for i in range(0, n):
+        for j in range(i + 1, n):
+            if arr[i] + arr[j] == sum:
+                return [i,j]
+ 
+# Driver function
+arr = [1, 5, 7, -1, 5]
+n = len(arr)
+sum = 6
+print(getPairsCount(arr, n, sum))
+
+#///////////////
+
+def printPairs(arr, arr_size, sum):
+     
+    # Create an empty hash map
+    # using an hashmap allows us to store the indices
+    hashmap = {}
+     
+    for i in range(0, arr_size):
+        temp = sum-arr[i]
+        if (temp in hashmap):
+            print (f'Pair with given sum {sum} is ({temp},{arr[i]}) at indices ({hashmap[temp]},{i})')
+        hashmap[arr[i]] = i
+ 
+# driver code
+A = [1, 4, 45, 6, 10, 8]
+n = 16
+printPairs(A, len(A), n)
+
+#///////////////
