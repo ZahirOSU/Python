@@ -1,0 +1,31 @@
+# We would like to take any matrix and Hankelize it (i.e. convert it to a Hankel matrix). The way we
+# do it is by replacing each element by its diagonal average.
+
+import numpy as np
+x = 0
+avrlst = []
+
+matrix = [[-2,  5,  3,  2],
+          [ 9, -6,  5,  1],
+          [ 3,  2,  7,  3],
+          [-1,  8, -4,  8]]
+
+# 1. find a list contain the diagonal of the matrix
+matrix = np.array(matrix, dtype=float)
+matrix = np.flipud(matrix)
+a = matrix.shape[0]
+mylist = [np.diag(matrix, k=i).tolist() for i in range(-a+1,a)]
+ 
+# 2. find the avearage for each item in the list
+for i in mylist:
+    x= sum(i) / len(i)
+    avrlst.append(x)
+print(avrlst)
+
+# 3. assign the value of each avaerage to the diagonal memebrs
+ROW , COL = np.shape(matrix)
+
+for i in range(0, ROW):
+        for j in range(0, COL):
+            matrix[i][j] = avrlst[i+j]
+print(matrix)
