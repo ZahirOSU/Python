@@ -1,0 +1,26 @@
+For example, if the string "Zebra-493?" is rotated 3 places, the resulting string is "Cheud-726?". 
+Every alphabetic character is replaced with the character 3 letters higher (wrapping around from Z to A), 
+and every numeric character replaced with the character 3 digits higher (wrapping around from 9 to 0). 
+Note that the non-alphanumeric characters remain unchanged.
+
+valid_symbols = "All-convoYs-9-be:Alert1."
+
+x = "" 
+rotationFactor = 4
+for i in valid_symbols:
+    if i.islower():
+        n = (ord(i) + rotationFactor - 97)%(26) + 97
+        x+=chr(n)
+        
+    elif i.isupper():
+        n = (ord(i) + rotationFactor - 65)%(26) + 65
+        x+=chr(n)
+        
+    elif i.isdigit():
+        n = (int(i) + rotationFactor)%(10) 
+        x+= str(n)
+    else:
+      x+= i
+ 
+# expected_1 = "Epp-gsrzsCw-3-fi:Epivx5."
+print(x)
