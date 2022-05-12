@@ -1,0 +1,21 @@
+Given two arrays A and B of length N, determine if there is a way to make A equal to B by reversing any subarrays from array B any number of times.
+
+Example
+A = [1, 2, 3, 4]
+B = [1, 4, 3, 2]
+output = true
+
+a_2 = [1, 2, 3, 4]
+  b_2 = [1, 2, 3, 5]  
+  expected_2 = False
+  
+  def are_they_equal(array_a, array_b):
+    dic = {}
+
+    for index, value in enumerate(array_a):
+        dic[value] = index
+
+    for i  in array_b:
+        if i not in dic:
+            return False
+    return True
