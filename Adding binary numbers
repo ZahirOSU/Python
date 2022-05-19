@@ -18,7 +18,7 @@ result = ''
   
 # Initialize the carry
 carry = 0
-  
+ 
 # Traverse the string
 for i in range(max_len - 1, -1, -1):
     r = carry
@@ -31,5 +31,4 @@ for i in range(max_len - 1, -1, -1):
   
 if carry != 0:
     result = '1' + result
-  
 print(result.zfill(max_len))
