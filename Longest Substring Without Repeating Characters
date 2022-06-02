@@ -33,3 +33,19 @@ Input: s = "pwwkew"
 Output: 3
 Explanation: The answer is "wke", with the length of 3.
 Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
+//////////////////
+
+def longestun(s):
+    dic = {}
+    maxl = 0
+    sind = 0
+    for i in range(len(s)):
+        if s[i] in dic:
+            sind = max(sind, dic[s[i]]+1)
+        maxl = max(maxl ,  i - sind +1)
+        dic[s[i]] = i
+    return maxl  
+
+s = "abcabcbb"
+print(longestun(s))
+
