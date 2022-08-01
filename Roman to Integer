@@ -1,3 +1,4 @@
+Simple python solution with dict
 def romanToInt(self, s):
         ROMAN_MAP = {
             'M': 1000,
