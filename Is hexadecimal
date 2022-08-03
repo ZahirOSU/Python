@@ -1,0 +1,34 @@
+def is_hexidecimal(mystr):
+    """Truth function to determine whether or not a string is a valid hexidecimal string
+    A valid hexidecimal string contains characters 0-9, a-f, A-F, (at least one) 
+    and may begin with the prefix `0x`
+    Returns True if it is a valid hexidecimal string, and False otherwise.
+    assert (is_hexidecimal("a")  == True)
+    assert (is_hexidecimal("0xA") == True)
+    assert (is_hexidecimal("dog") == False)
+    assert (is_hexidecimal("0x") == False)
+    assert (is_hexidecimal("") == False)
+    assert (is_hexidecimal("0xabcdef"==True)
+    assert (is_hexidecimal("123"==True)
+    assert (is_hexidecimal("cat123"==False)
+    """
+    if mystr == "" or mystr == "0x":
+        return "False"
+     
+     
+    res = mystr.startswith("0x")
+     
+    if res:
+        for i in range(2,len(mystr)):
+            if ((mystr[i]<'0' or mystr[i]> '9') and (mystr[i]<'A' or mystr[i] > 'F') and (mystr[i]<'a' or mystr[i] > 'f')):
+                return "Flase"    
+        return "True"
+    for i in mystr:
+        #check the character
+        if ((i<'0' or i> '9') and (i<'A' or i > 'F') and (i<'a' or i > 'f')):
+            return "Flase"
+    return "True"
+
+mystr = "0x34"
+
+print(is_hexidecimal(mystr))
