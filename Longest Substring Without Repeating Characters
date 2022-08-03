@@ -34,18 +34,31 @@ Output: 3
 Explanation: The answer is "wke", with the length of 3.
 Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
 //////////////////
+We initialize the result res = 0, and two pointers j = 0, and i = 0. 
+We initialize a dictionary dic which maps every element in s[:i+1] to its index of rightmost occurrence in s[:i+1]. 
+Then we iterate i over range(len(s)), if s[i] is not in dic, we add it to dic: dic[s[i]] = i; 
+Otherwise, we move j to max(j, dic[s[i]]+1), so that within the window [j:i+1], the element s[i] only occur once. 
+Then we update the result res = max(res, i-j+1). Finally, we return res.
+Time complexity: O(n), space complexity: O(n).
 
-def longestun(s):
-    dic = {}
-    maxl = 0
-    sind = 0
-    for i in range(len(s)):
-        if s[i] in dic:
-            sind = max(sind, dic[s[i]]+1)
-        maxl = max(maxl ,  i - sind +1)
-        dic[s[i]] = i
-    return maxl  
+class Solution(object):
+    def lengthOfLongestSubstring(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        dic = {}
+        res = 0
+        j = 0
+        for i in range(len(s)):
+            if s[i] not in dic:
+                dic[s[i]] = i
+            else:
+                j = max(j, dic[s[i]]+1)
+                dic[s[i]] = i
+            res = max(res, i-j+1)
+        return res
 
 s = "abcabcbb"
-print(longestun(s))
+print(lengthOfLongestSubstring(s))
 
