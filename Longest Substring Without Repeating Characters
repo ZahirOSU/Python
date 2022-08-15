@@ -62,3 +62,25 @@ class Solution(object):
 s = "abcabcbb"
 print(lengthOfLongestSubstring(s))
 
+
+###################
+This function will convert the original string into multiple substrings and check if the substring is unique or not. 
+As shown below, this function will return the longest substring with its length.
+def GetLongestSubstring(x):
+        if len(set(x)) == len(x):
+            return len(x)
+        Substring = ''
+        StrLen = 1
+        for a in x:
+            if a not in Substring:
+                Substring = Substring + a
+                StrLen = max(StrLen, len(Substring))
+            else:
+                Substring = Substring.split(a)[1] + a
+                print(Substring)
+                
+        print(Substring)
+        return StrLen
+print(GetLongestSubstring("abcabcbb"))
+
+
